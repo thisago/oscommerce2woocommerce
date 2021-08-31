@@ -1,6 +1,6 @@
 <!--
   Created at: 08/31/2021 21:47:37 Tuesday
-  Modified at: 08/31/2021 09:52:46 PM Tuesday
+  Modified at: 08/31/2021 09:56:37 PM Tuesday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
@@ -18,6 +18,7 @@ Converts:
 ## Todo
 
 - [ ] Add more data convertion
+- [ ] Test older Nim versions
 
 
 ## License
