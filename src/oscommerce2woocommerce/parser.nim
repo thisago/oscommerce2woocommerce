@@ -1,160 +1,34 @@
 #[
   Created at: 08/31/2021 21:51:13 Tuesday
-  Modified at: 08/31/2021 11:42:43 PM Tuesday
+  Modified at: 09/01/2021 08:55:56 PM Wednesday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
 ]#
 
+from std/strutils import find
 from std/strformat import fmt
 from std/tables import toTable, `[]`
 
 import oscommerce2woocommerce/base
 export base
 
-using
-  s: string
-  data: tuple[key, value: string]
-
-const wooUserField = {
-  "customers_id": (
-    key: (
-      database: "wp_users",
-      column: "ID"
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_gender": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = ""
-    )
-  ),
-  "customers_firstname": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_lastname": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_dob": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_email_address": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_default_address_id": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_telephone": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_fax": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_password": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_newsletter": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_activation_code": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_active_status": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
-  "customers_notes": (
-    key: (
-      database: "",
-      column: ""
-    ),
-    parse: (func(s): string =
-      result = s
-    )
-  ),
+const countryCode = {
+  30: "BR",
+  31: "US"
 }.toTable
 
-func toWooUser*(data): WooData =
-  try:
-    let
-      wooField = wooUserField[data[0]]
-      parsed = wooField.parse data[1]
-
-    if parsed.len > 0:
-      result.key = wooField.key
-      result.value = parsed
-    else:
-      result.discarded = true
-  except:
-    doAssert false, fmt"Invalid OsCommerce key: '{data[0]}'"
+func toWoo*(user: OsCommerceUser): WooCommerceUser =
+  result.first_name = user.customers_firstname
+  result.last_name = user.customers_lastname
+  result.email = user.customers_email_address
+  result.username = result.email[0..<result.email.find "@"]
+  block billing:
+    result.billing.first_name = result.first_name
+    result.billing.last_name = result.last_name
+    result.billing.email = result.email
+    result.billing.phone = user.customers_telephone
+    result.billing.address_1 = user.address.entry_street_address
+    result.billing.city = user.address.entry_city
+    result.billing.postcode = user.address.entry_postcode
+    result.billing.country = countryCode[user.address.entry_country_id]
