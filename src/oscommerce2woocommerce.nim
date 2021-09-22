@@ -1,6 +1,6 @@
 #[
   Created at: 08/31/2021 21:50:31 Tuesday
-  Modified at: 09/03/2021 11:46:26 AM Friday
+  Modified at: 09/22/2021 04:54:25 PM Wednesday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
@@ -40,8 +40,8 @@ when isMainModule:
           echo "Adding user " & $users[i].customers_id
       if output.len > 0:
         writeFile output, wooUsers.toJson
-    except ParseError:
-      echo "Json parse error: " & getCurrentExceptionMsg()
+    except:
+      echo "Error: " & getCurrentExceptionMsg()
 
   import pkg/cligen
   dispatch main

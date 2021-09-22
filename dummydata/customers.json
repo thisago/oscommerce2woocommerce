@@ -1,0 +1,18 @@
+[
+  {
+    "customers_id": 0,
+    "customers_gender": "m",
+    "customers_firstname": "John",
+    "customers_lastname": "Doe",
+    "customers_dob": "1950-01-01 00:00:00",
+    "customers_email_address": "example@example.com",
+    "customers_default_address_id": 1,
+    "customers_telephone": "000000000",
+    "customers_fax": "00000000",
+    "customers_password": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:aa",
+    "customers_newsletter": "1",
+    "customers_activation_code": null,
+    "customers_active_status": "1",
+    "customers_notes": "Administrador do site"
+  }
+]
