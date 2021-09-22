@@ -3,7 +3,7 @@
 version       = "0.1.1"
 author        = "Thiago Navarro"
 description   = "A new awesome nimble package"
-license       = "MIT"
+license       = "GPL3"
 srcDir        = "src"
 
 binDir = "build"

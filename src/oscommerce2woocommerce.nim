@@ -1,17 +1,15 @@
 #[
   Created at: 08/31/2021 21:50:31 Tuesday
-  Modified at: 09/22/2021 04:54:25 PM Wednesday
+  Modified at: 09/22/2021 05:02:28 PM Wednesday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
 ]#
 
-
 import oscommerce2woocommerce/parser
 export parser
 
 {.experimental: "codeReordering".}
-
 
 when isMainModule:
   from pkg/jsony import fromJson, toJson
