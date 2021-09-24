@@ -1,6 +1,6 @@
 <!--
   Created at: 08/31/2021 21:47:37 Tuesday
-  Modified at: 09/24/2021 08:02:51 PM Friday
+  Modified at: 09/24/2021 08:05:46 PM Friday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
@@ -8,7 +8,7 @@
 
 # oscommerce2woocommerce
 
-Convert exported SQL from OsCommerce to WooCommerce compatible
+OsCommerce database to WooCommerce compatible
 
 ## WARNING
 
