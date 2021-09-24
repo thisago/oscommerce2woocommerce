@@ -1,6 +1,6 @@
 <!--
   Created at: 08/31/2021 21:47:37 Tuesday
-  Modified at: 09/22/2021 06:11:46 PM Wednesday
+  Modified at: 09/24/2021 07:59:47 PM Friday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
@@ -10,12 +10,20 @@
 
 Convert exported SQL from OsCommerce to WooCommerce compatible
 
+## WARNING
+
+This project was abandonned because [this wp module](https://github.com/alexwing/woocommerce-oscommerce-sync) solves well
+
 ## Features
 
-Converts:
-- [ ] customers
-- [ ] address_book
-- [ ] orders
+- [ ] Convertion
+  - [x] customers
+  - [x] address_book
+  - [ ] orders
+- [ ] Saving
+  - [ ] customers
+  - [ ] address_book
+  - [ ] orders
 
 ## Todo
 
